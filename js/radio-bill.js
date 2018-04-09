@@ -3,39 +3,41 @@ var billItemType = document.querySelector(".billItemTypeRadio");
 //get a reference to the add button
 var radioBillAddBtn = document.querySelector(".radioBillAddBtn");
 
-var callsTotalElem = document.querySelector(".callTotalTwo");
-var smsTotalElem = document.querySelector(".smsTotalTwo");
-var totalCostElem = document.querySelector(".totalTwo");
+var calls_TotalElem = document.querySelector(".callTotalTwo");
+var sms_TotalElem = document.querySelector(".smsTotalTwo");
+var total_CostElem = document.querySelector(".totalTwo");
 //create a variable that will keep track of the total bill
-var callsTotal = 0;
-var smsTotal = 0;
+var calls_Total = 0;
+var sms_Total = 0;
 //add an event listener for when the add button is pressed
 function radioBillTotal(){
-    // get the value entered in the billType textfield
+
     var checkedRadioBtn = document.querySelector("input[name='billItemType']:checked");
     if (checkedRadioBtn){
+      // get the value entered in the billItemType radioBillBtn
       var billItemType = checkedRadioBtn.value
+
     // billItemType will be 'call' or 'sms'
       if (billItemType === "call"){
-          callsTotal += 2.75
+          calls_Total += 2.75
       }
       else if (billItemType === "sms"){
-          smsTotal += 0.75;
+          sms_Total += 0.75;
       }
 
       //update the totals that is displayed on the screen.
-      callsTotalElem.innerHTML = callsTotal.toFixed(2);
-      smsTotalElem.innerHTML = smsTotal.toFixed(2);
-      var totalCost = callsTotal + smsTotal;
-      totalCostElem.innerHTML = totalCost.toFixed(2);
+      calls_TotalElem.innerHTML = callsTotal.toFixed(2);
+      sms_TotalElem.innerHTML = smsTotal.toFixed(2);
+      var total_Cost = calls_Total + sms_Total;
+      total_CostElem.innerHTML = total_Cost.toFixed(2);
 
       //color the total based on the criteria
-      if (totalCost >= 50){
+      if (total_Cost >= 50){
         // adding the danger class will make the text red
-        totalCostElem.classList.add("danger");
+        total_CostElem.classList.add("danger");
       }
-      else if (totalCost >= 30){
-        totalCostElem.classList.add("warning");
+      else if (total_Cost >= 30){
+        total_CostElem.classList.add("warning");
       }
     }
 

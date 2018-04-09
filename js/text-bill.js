@@ -16,7 +16,7 @@ function textBillTotal(){
     if(Number.isNaN(Number(billTypeEntered))){
       // update the correct total
       if (billTypeEntered === "call"){
-          callsTotal += 2.75
+          callsTotal += 2.75;
       }
       else if (billTypeEntered === "sms"){
           smsTotal += 0.75;
