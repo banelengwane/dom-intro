@@ -17,6 +17,7 @@ function radioBillTotal(){
       // get the value entered in the billType textfield
       var billItemType = checkedRadioBtn.value
     // billItemType will be 'call' or 'sms'
+    if(Number.isNaN(Number(billItemType))){
       if (billItemType === "call"){
           callsTotal += 2.75
       }
@@ -39,6 +40,10 @@ function radioBillTotal(){
         totalCostElem.classList.add("warning");
       }
     }
+    }else {
+      alert("Please select the 'sms' or 'call' radio button");
+    }
+
 
 }
 

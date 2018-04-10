@@ -37,7 +37,7 @@ function textBillTotal(){
         totalCostElem.classList.add("warning");
       }
     }else {
-      alert("Please enter the correct bill!");
+      alert("Please enter sms / call!");
     }
 
 }

@@ -40,7 +40,7 @@ function calculateBtnClicked(){
             billTotalElement.classList.add("warning");
         }
     }else {
-      alert("Please enter the correct bill! ");
+      alert("Please enter a bill string!");
     }
 }
 //link the function to a click event on the calculate button
