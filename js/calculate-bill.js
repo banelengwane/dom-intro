@@ -38,7 +38,11 @@ function calculateBtnClicked(){
         }
         else if (roundedBillTotal >= 20){
             billTotalElement.classList.add("warning");
-        }
+        }else if (roundedBillTotal < 20) {
+        //hoping that this will bring the color of the text to black
+        billTotalElement.classList.remove("warning");
+        billTotalElement.classList.remove("danger");
+      }
     }else {
       alert("Please enter a bill string!");
     }
