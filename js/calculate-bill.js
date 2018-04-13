@@ -32,16 +32,19 @@ function calculateBtnClicked(){
       //round to two decimals
       var roundedBillTotal = billTotal.toFixed(2);
       billTotalElement.innerHTML = roundedBillTotal;
-      if (roundedBillTotal >= 30){
+      if (roundedBillTotal > 30){
             // adding the danger class will make the text red
-            billTotalElement.classList.add("danger");
+            billTotalElement.style.color = 'crimson';
+            span.style.color = 'crimson';
         }
-        else if (roundedBillTotal >= 20){
-            billTotalElement.classList.add("warning");
+        else if (roundedBillTotal > 20){
+            billTotalElement.style.color = 'orange';
+            span.style.color = 'orange';
+
         }else if (roundedBillTotal < 20) {
         //hoping that this will bring the color of the text to black
-        billTotalElement.classList.remove("warning");
-        billTotalElement.classList.remove("danger");
+        billTotalElement.style.color = 'black';
+        span.style.color = 'black';
       }
     }else {
       alert("Please enter a bill string!");
