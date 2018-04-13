@@ -4,7 +4,7 @@ var calls_TotalEle = document.querySelector(".callTotalOne");
 var sms_TotalEle = document.querySelector(".smsTotalOne");
 var total_CostEle = document.querySelector(".totalOne");
 
-//get a reference to the add button
+//get a reference to the add button this will add all
 var text_TotalAddBtn = document.querySelector(".addToBillBtn");
 //create a variable that will keep track of the total bill
 var calls_Total = 0;
