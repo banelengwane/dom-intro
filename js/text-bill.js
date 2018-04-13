@@ -35,10 +35,10 @@ function text_BillTotal(){
       }
       else if (total_Cost >= 30){
         total_CostEle.classList.add("warning");
-      }else if (roundedBillTotal < 20) {
+      }else if (total_Cost < 20) {
         //hoping that this will bring the color of the text to black
-        billTotalElement.classList.remove("warning");
-        billTotalElement.classList.remove("danger");
+        total_CostEle.classList.remove("warning");
+        total_CostEle.classList.remove("danger");
       }
     }else {
       alert("Please enter sms / call!");
