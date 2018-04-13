@@ -43,7 +43,6 @@ function text_BillTotal(){
     }else {
       alert("Please enter sms / call!");
     }
-
 }
 
 text_TotalAddBtn.addEventListener('click', text_BillTotal);
