@@ -22,23 +22,43 @@ var settingCritical = 0;
 var settingCallTotal = 0;
 var settiingSMSTotal = 0;
 var settingTotal = 0;
+
+//new total
+var newTotal = 0;
 //add an event listener for when the 'Update settings' button is pressed
 settingUpdateBtn.addEventListener("click", settingsUpdater);
 
 function settingsUpdater(){
+  //type check for all fields on the setting section
+
   //update the values of the entered setting
   var newCallSetting = callsSettingElement.value;
   var newSMSSetting = smsSettingElement.value;
   var newWarningSetting = warningSettingElement.value;
   var newCriticalSetting = criticalSettingElement.value;
 
-  //update the values of the variables which keep track all settings
-  settingCall = parseFloat(newCallSetting);
-  settingSMS = parseFloat(newSMSSetting);
-  settingWarning = parseFloat(newWarningSetting);
-  settingCritical = parseFloat(newCriticalSetting);
-  if (settingTotal >= settingCritical) {
-    
+  if(Number.isNaN(Number(newCallSetting)) || Number.isNaN(Number(newSMSSetting)) || Number.isNaN(Number(newWarningSetting)) || Number.isNaN(Number(newCriticalSetting))){
+    alert("something went wrong!");
+  }else {
+    //update the values of the variables which keep track all settings
+    settingCall = parseFloat(newCallSetting);
+    settingSMS = parseFloat(newSMSSetting);
+    settingWarning = parseFloat(newWarningSetting);
+    settingCritical = parseFloat(newCriticalSetting);
+
+    // create a variable to update and keep the settingTotal
+
+    newTotal = settingCritical;
+
+    //color the total based on the criteria
+    if (settingTotal > settingWarning){
+      // adding the danger class will make the text red
+      settingTotalElem.style.color = 'orange';
+    }else if (settingTotal > settingCritical) {
+      settingTotalElem.style.color = 'red';
+    }else if (settingTotal < settingWarning) {
+      settingTotalElem.style.color = 'black';
+    }
   }
 
 }
@@ -51,8 +71,8 @@ function settingRadioBill(){
       var billItemTypeWithSettings = checkedRadioBtn.value;
     // billItemType will be 'call' or 'sms'
       if(Number.isNaN(Number(billItemTypeWithSettings))){
-        if (settingTotal === settingCritical) {
-
+        if (settingTotal >= newTotal) {
+          settingTotalElem.style.color = 'red';
         }else{
           if (billItemTypeWithSettings === "call"){
               settingCallTotal += settingCall;
@@ -72,7 +92,7 @@ function settingRadioBill(){
             // adding the danger class will make the text red
             settingTotalElem.style.color = 'orange';
           }else if (settingTotal > settingCritical) {
-            settingTotalElem.style.color = 'crimson';
+            settingTotalElem.style.color = 'red';
           }
         }
 
