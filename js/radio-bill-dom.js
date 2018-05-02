@@ -7,7 +7,7 @@ var callsTotal_Elem = document.querySelector(".callTotalTwo");
 var smsTotal_Elem = document.querySelector(".smsTotalTwo");
 var totalCost_Elem = document.querySelector(".totalTwo");
 //create a variable that will keep track of the total bill
-
+var radio_bill = calculateRadioBill();
 //add an event listener for when the add button is pressed
 function radioBill_Total(){
 
@@ -16,7 +16,7 @@ function radioBill_Total(){
       // get the value entered in the billType textfield
       var billItem_Type = checkedRadio_Btn.value;
 
-      var radio_bill = calculateRadioBill();
+
 
       radio_bill.radioEntry(billItem_Type);
     // billItemType will be 'call' or 'sms'
