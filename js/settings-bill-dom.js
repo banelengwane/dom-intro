@@ -24,7 +24,7 @@ var settiingSMSTotal = 0;
 var settingTotal = 0;
 
 //new total
-var newTotal = 0;
+  var newTotal = 0;
 //add an event listener for when the 'Update settings' button is pressed
 settingUpdateBtn.addEventListener("click", settingsUpdater);
 
