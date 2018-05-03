@@ -14,17 +14,7 @@ var settingTotalElem = document.querySelector(".totalSettings");
 //get a reference to the 'Update settings' button
 var settingUpdateBtn = document.querySelector(".updateSettings");
 // create a variables that will keep track of all the settings
-var settingCall = 0;
-var settingSMS = 0;
-var settingWarning = 0;
-var settingCritical = 0;
-// create a variables that will keep track of all three totals.
-var settingCallTotal = 0;
-var settiingSMSTotal = 0;
-var settingTotal = 0;
-
-//new total
-  var newTotal = 0;
+var setUserBill = calculateSettingBill();
 //add an event listener for when the 'Update settings' button is pressed
 settingUpdateBtn.addEventListener("click", settingsUpdater);
 
@@ -37,29 +27,29 @@ function settingsUpdater(){
   var newWarningSetting = warningSettingElement.value;
   var newCriticalSetting = criticalSettingElement.value;
 
-  if(Number.isNaN(Number(newCallSetting)) || Number.isNaN(Number(newSMSSetting)) || Number.isNaN(Number(newWarningSetting)) || Number.isNaN(Number(newCriticalSetting))){
-    alert("something went wrong!");
-  }else {
+  // if(Number.isNaN(Number(newCallSetting)) || Number.isNaN(Number(newSMSSetting)) || Number.isNaN(Number(newWarningSetting)) || Number.isNaN(Number(newCriticalSetting))){
+  //   alert("something went wrong!");
+  // }else {
     //update the values of the variables which keep track all settings
-    settingCall = parseFloat(newCallSetting);
-    settingSMS = parseFloat(newSMSSetting);
-    settingWarning = parseFloat(newWarningSetting);
-    settingCritical = parseFloat(newCriticalSetting);
+    setUserBill.updateCall(newCallSetting);
+    setUserBill.updateSMS(newSMSSetting);
+    setUserBill.updateWarning(newWarningSetting);
+    setUserBill.updateCritical(newCriticalSetting);
+
 
     // create a variable to update and keep the settingTotal
 
-    newTotal = settingCritical;
 
     //color the total based on the criteria
-    if (settingTotal > settingWarning){
+    if (setUserBill.total() > setUserBill.settingWarningBill()){
       // adding the danger class will make the text red
       settingTotalElem.style.color = 'orange';
-    }else if (settingTotal > settingCritical) {
+    }else if (setUserBill.total() > setUserBill.settingCriticalBill()) {
       settingTotalElem.style.color = 'red';
-    }else if (settingTotal < settingWarning) {
+    }else if (setUserBill.total() < setUserBill.settingWarningBill()) {
       settingTotalElem.style.color = 'black';
     }
-  }
+  // }
 
 }
 //add an event listener for when the add button is pressed
@@ -70,35 +60,29 @@ function settingRadioBill(){
       // get the value entered in the billType textfield
       var billItemTypeWithSettings = checkedRadioBtn.value;
     // billItemType will be 'call' or 'sms'
-      if(Number.isNaN(Number(billItemTypeWithSettings))){
-        if (settingTotal >= newTotal) {
+      // if(Number.isNaN(Number(billItemTypeWithSettings))){
+
+        if (setUserBill.criticalLevelReached()) {
           settingTotalElem.style.color = 'red';
         }else{
-          if (billItemTypeWithSettings === "call"){
-              settingCallTotal += settingCall;
-          }
-          else if (billItemTypeWithSettings === "sms"){
-              settiingSMSTotal += settingSMS;
-          }
+          setUserBill.settingEntry(billItemTypeWithSettings);
 
           //update the totals that is displayed on the screen.
-          settingCallTotalElem.innerHTML = settingCallTotal.toFixed(2);
-          settingSMSTotalElem.innerHTML = settiingSMSTotal.toFixed(2);
-          settingTotal = settingCallTotal + settiingSMSTotal;
-          settingTotalElem.innerHTML = settingTotal.toFixed(2);
+          settingCallTotalElem.innerHTML = setUserBill.callsTotal();
+          settingSMSTotalElem.innerHTML = setUserBill.smsTotal();
+          settingTotalElem.innerHTML = setUserBill.total();
 
           //color the total based on the criteria
-          if (settingTotal > settingWarning){
+          if (setUserBill.total() > setUserBill.settingWarningBill()){
             // adding the danger class will make the text red
             settingTotalElem.style.color = 'orange';
-          }else if (settingTotal > settingCritical) {
+          }else if (setUserBill.total() > setUserBill.settingCriticalBill()) {
             settingTotalElem.style.color = 'red';
           }
-        }
-
-      }else {
-        alert("Please select the 'sms' or 'call' radio button");
       }
+      // else {
+      //   alert("Please select the 'sms' or 'call' radio button");
+      // }
     }
 }
 
