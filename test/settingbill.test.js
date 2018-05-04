@@ -19,9 +19,12 @@ describe('The Settings Bill DOM function' , function(){
 
 
 
-      assert.equal(settingUser.callsTotal(), 2.75);
-      assert.equal(settingUser.smsTotal(), 0.75);
-      assert.equal(settingUser.total(), 3.50);
+      assert.equal(settingUser.callsTotal(), 7.50);
+      assert.equal(settingUser.smsTotal(), 3.00);
+      assert.equal(settingUser.total(), 10.50);
+      assert.equal(settingUser.warningLevelReached(), false);
+      assert.equal(settingUser.criticalLevelReached(), true);
+
 
     });
 });

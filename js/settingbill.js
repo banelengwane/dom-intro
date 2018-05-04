@@ -60,8 +60,13 @@ function calculateSettingBill(){
     return settingsTotalBill() >= settingCriticalBill();
   }
 
+  function warningLevelReached(){
+    return settingsTotalBill() >= settingWarningBill();
+  }
+
   return{
     criticalLevelReached,
+    warningLevelReached,
     updateCall,
     updateSMS,
     updateWarning,
