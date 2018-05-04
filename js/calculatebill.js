@@ -1,7 +1,7 @@
 function calculateBillEvent(bill){
     //test the string if its really a string
     var errorMessage = "Please enter a string";
-    // if(typeof bill === 'string'){
+    if(typeof bill === 'string'){
       //split the string
       var billItems = bill.split(",");
       // a variable for the total phone bill.
@@ -18,7 +18,9 @@ function calculateBillEvent(bill){
       }
       return billTotal.toFixed(2);
 
-    // }else{
-    //   return errorMessage;
-    // }
+    }else{
+      return errorMessage;
+    }
+
+
 }

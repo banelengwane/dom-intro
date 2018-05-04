@@ -22,8 +22,18 @@ function calculateTextBill(){
     return (calls_Total + sms_Total).toFixed(2);
   }
 
+  function warningReached(){
+    return callsAndSMSTotal > 30;
+  }
+
+  function criticalReached(){
+    return callsAndSMSTotal > 50;
+  }
+
   return{
-    callAndSMS:callAndSMS,
+    callAndSMS,
+    warningReached,
+    criticalReached,
     callSum:totalOfCalls,
     smsSum:totalOfSMS,
     sum:callsAndSMSTotal,
