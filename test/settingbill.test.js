@@ -1,5 +1,5 @@
 describe('The Settings Bill DOM function' , function(){
-    it('should return 3.50 if user enteres selects / presses call and sms' , function(){
+    it('should return 10.50 as total, also return true for critial level reached if the total is more than the critical' , function(){
       var settingUser = calculateSettingBill();
 
       settingUser.updateCall(2.50);
@@ -22,7 +22,6 @@ describe('The Settings Bill DOM function' , function(){
       assert.equal(settingUser.callsTotal(), 7.50);
       assert.equal(settingUser.smsTotal(), 3.00);
       assert.equal(settingUser.total(), 10.50);
-      assert.equal(settingUser.warningLevelReached(), false);
       assert.equal(settingUser.criticalLevelReached(), true);
 
 
