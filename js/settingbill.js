@@ -61,7 +61,7 @@ function calculateSettingBill(){
   }
 
   function warningLevelReached(){
-    return settingsTotalBill() >= settingWarningBill();
+    return settingsTotalBill() > settingWarningBill();
   }
 
   return{
