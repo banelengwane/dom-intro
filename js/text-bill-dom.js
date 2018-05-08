@@ -7,7 +7,7 @@ var total_CostEle = document.querySelector(".totalOne");
 //get a reference to the add button this will add all
 var text_TotalAddBtn = document.querySelector(".addToBillBtn");
 //create a variable that will keep track of the total bill
-var theBill = calculateTextBill();
+var theBill = CalculateBill();
 //add an event listener for when the add button is pressed
 function text_BillTotal(){
     // get the value entered in the billType textfield

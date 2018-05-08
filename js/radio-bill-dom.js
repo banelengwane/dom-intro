@@ -7,7 +7,7 @@ var callsTotal_Elem = document.querySelector(".callTotalTwo");
 var smsTotal_Elem = document.querySelector(".smsTotalTwo");
 var totalCost_Elem = document.querySelector(".totalTwo");
 //create a variable that will keep track of the total bill
-var radio_bill = calculateRadioBill();
+var radio_bill = CalculateBill();
 //add an event listener for when the add button is pressed
 function radioBill_Total(){
 
@@ -18,7 +18,7 @@ function radioBill_Total(){
 
 
 
-      radio_bill.radioEntry(billItem_Type);
+      radio_bill.callAndSMS(billItem_Type);
     // billItemType will be 'call' or 'sms'
     // if(Number.isNaN(Number(billItem_Type))){
     //   if (billItem_Type === "call"){
@@ -29,16 +29,16 @@ function radioBill_Total(){
     //   }
 
       //update the totals that is displayed on the screen.
-      callsTotal_Elem.innerHTML = radio_bill.callBill();
-      smsTotal_Elem.innerHTML = radio_bill.smsBill();
-      totalCost_Elem.innerHTML = radio_bill.allBill();
+      callsTotal_Elem.innerHTML = radio_bill.callSum();
+      smsTotal_Elem.innerHTML = radio_bill.smsSum();
+      totalCost_Elem.innerHTML = radio_bill.sum();
 
       //color the total based on the criteria
-      if (radio_bill.allBill() >= 50){
+      if (radio_bill.sum() >= 50){
         // adding the danger class will make the text red
         totalCost_Elem.classList.add("danger");
       }
-      else if (radio_bill.allBill() >= 30){
+      else if (radio_bill.sum() >= 30){
         totalCost_Elem.classList.add("warning");
       }
     }

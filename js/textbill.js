@@ -1,4 +1,4 @@
-function calculateTextBill(){
+function CalculateBill(){
   var calls_Total = 0;
   var sms_Total = 0;
   var total_cost = 0;

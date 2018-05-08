@@ -1,40 +1,40 @@
 describe('The radioBill DOM function' , function(){
-    it('should return 3.50 if user enteres selects / presses call and sms' , function(){
-      var radioCaller = calculateRadioBill();
+    it('should return 3.40 if user enteres selects / presses call and sms' , function(){
+      var radioCaller = CalculateBill();
 
-      radioCaller.radioEntry('call');
-      radioCaller.radioEntry('sms');
+      radioCaller.callAndSMS('call');
+      radioCaller.callAndSMS('sms');
 
-      assert.equal(radioCaller.callBill(), 2.75);
-      assert.equal(radioCaller.smsBill(), 0.75);
-      assert.equal(radioCaller.allBill(), 3.50);
+      assert.equal(radioCaller.callSum(), 2.75);
+      assert.equal(radioCaller.smsSum(), 0.65);
+      assert.equal(radioCaller.sum(), 3.40);
 
     });
 
     it('should return 2.75 and do not count any other inputs' , function(){
-      var radioCaller = calculateRadioBill();
+      var radioCaller = CalculateBill();
 
-      radioCaller.radioEntry('call');
-      radioCaller.radioEntry('banele');
-      radioCaller.radioEntry(100);
+      radioCaller.callAndSMS('call');
+      radioCaller.callAndSMS('banele');
+      radioCaller.callAndSMS(100);
 
-      assert.equal(radioCaller.callBill(), 2.75);
-      assert.equal(radioCaller.smsBill(), 0.00);
-      assert.equal(radioCaller.allBill(), 2.75);
+      assert.equal(radioCaller.callSum(), 2.75);
+      assert.equal(radioCaller.smsSum(), 0.00);
+      assert.equal(radioCaller.sum(), 2.75);
     });
 
     it('should return 2.75, check wether the critical / warning was reached, and do not count any other inputs' , function(){
-      var radioCaller = calculateRadioBill();
+      var radioCaller = CalculateBill();
 
-      radioCaller.radioEntry('call');
-      radioCaller.radioEntry('banele');
-      radioCaller.radioEntry(100);
+      radioCaller.callAndSMS('call');
+      radioCaller.callAndSMS('banele');
+      radioCaller.callAndSMS(100);
 
-      assert.equal(radioCaller.callBill(), 2.75);
-      assert.equal(radioCaller.smsBill(), 0.00);
-      assert.equal(radioCaller.allBill(), 2.75);
+      assert.equal(radioCaller.callSum(), 2.75);
+      assert.equal(radioCaller.smsSum(), 0.00);
+      assert.equal(radioCaller.callSum(), 2.75);
 
-      assert.equal(radioCaller.checkCritical(), false);
+      assert.equal(radioCaller.criticalReached(), false);
 
     });
 });

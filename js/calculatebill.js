@@ -1,4 +1,4 @@
-function calculateBillEvent(bill){
+function CalculateBillEvent(bill){
     //test the string if its really a string
     var errorMessage = "Please enter a string";
     if(typeof bill === 'string'){

@@ -1,6 +1,6 @@
 describe('The Settings Bill DOM function' , function(){
   it('should return 3.20 as total, also return false for critial level reached if the total is less than the critical' , function(){
-    var customer = calculateSettingBill();
+    var customer = CalculateSettingBill();
     customer.updateCall(2.50);
     customer.updateSMS(0.70);
     customer.updateWarning(10.00);
@@ -18,7 +18,7 @@ describe('The Settings Bill DOM function' , function(){
 
   });
     it('should return 10.50 as total, also return true for critial level reached if the total is more than the critical' , function(){
-      var settingUser = calculateSettingBill();
+      var settingUser = CalculateSettingBill();
 
       settingUser.updateCall(2.50);
       settingUser.updateSMS(0.50);
@@ -44,7 +44,7 @@ describe('The Settings Bill DOM function' , function(){
     });
 
     it('should return 10.50 as total, and other strings or numbers shouldnt affect the total '  , function(){
-      var settingUser = calculateSettingBill();
+      var settingUser = CalculateSettingBill();
 
       settingUser.updateCall(2.50);
       settingUser.updateSMS(0.50);

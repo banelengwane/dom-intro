@@ -1,4 +1,4 @@
-function calculateSettingBill(){
+function CalculateSettingBill(){
   // create a variables that will keep track of all the settings
   var settingCall = 0;
   var settingSMS = 0;

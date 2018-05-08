@@ -1,6 +1,6 @@
 describe('The text-bill DOM function' , function(){
     it('should return 11.00 is user enteres 4 call entries' , function(){
-      var bill = calculateTextBill();
+      var bill = CalculateBill();
       bill.callAndSMS('call');
       bill.callAndSMS('call');
       bill.callAndSMS('call');
@@ -18,7 +18,7 @@ describe('The text-bill DOM function' , function(){
     });
 
     it('should return 5.50 for the total and all other strings should be ignored' , function(){
-      var bill1 = calculateTextBill();
+      var bill1 = CalculateBill();
       bill1.callAndSMS('call');
       bill1.callAndSMS('call');
       bill1.callAndSMS(1000);
@@ -30,7 +30,7 @@ describe('The text-bill DOM function' , function(){
     });
 
     it('should return 55.00 is user enteres 20 call entries and check for the critical level if they are reached' , function(){
-      var bill2 = calculateTextBill();
+      var bill2 = CalculateBill();
       bill2.callAndSMS('call');
       bill2.callAndSMS('call');
       bill2.callAndSMS('call');

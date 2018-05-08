@@ -18,7 +18,7 @@ function calculateBtnClicked(){
       //split the string
       // a variable for the total phone bill.
 
-      var roundedBillTotal = calculateBillEvent(billString);
+      var roundedBillTotal = CalculateBillEvent(billString);
       //round to two decimals
       //var roundedBillTotal = calculateBillEvent();
       billTotalElement.innerHTML = roundedBillTotal;

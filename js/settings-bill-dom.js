@@ -14,7 +14,7 @@ var settingTotalElem = document.querySelector(".totalSettings");
 //get a reference to the 'Update settings' button
 var settingUpdateBtn = document.querySelector(".updateSettings");
 // create a variables that will keep track of all the settings
-var setUserBill = calculateSettingBill();
+var setUserBill = CalculateSettingBill();
 //add an event listener for when the 'Update settings' button is pressed
 settingUpdateBtn.addEventListener("click", settingsUpdater);
 
