@@ -25,7 +25,17 @@ function calculateRadioBill(){
     return totalCosts.toFixed(2);
   }
 
+  function checkWarning(){
+    return allTotals >= 30;
+  }
+
+
+    function checkCritical(){
+      return allTotals >= 50;
+    }
   return {
+    checkWarning,
+    checkCritical,
     radioEntry:radio,
     callBill:allCalls,
     smsBill:allSMS,
